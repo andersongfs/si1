@@ -1,2 +1,1 @@
-Este repositório contém o código do lab1 de Anderson Gustafson, da disciplina SI1.
--Alteracao10-
+Este repositório contém o código do lab1 de Anderson Gustafson Freire da Silva, da disciplina SI1.
