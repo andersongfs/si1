@@ -15,16 +15,17 @@ public class NumPorExtenso {
 		}
 		
 		if (num >= 20 && num < 100){
+			String[] arrayDezenas = {"vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"};
 			int num2 = num/10;
 			int resto = num%10;
 			
-			if (num2 == 2 && resto == 0){
-				return "vinte";
-			}
-			else if(num2 == 2 && resto != 0){
-				return String.format("vinte e %s", retornaExtenso(resto));
+			if(resto == 0){
+				return String.format("%s", arrayDezenas[num2-2]);
+			}else{
+				return String.format("%s e %s", arrayDezenas[num2-2], retornaExtenso(resto));
 			}
 		}
+		
 		return null;
 	}
 
