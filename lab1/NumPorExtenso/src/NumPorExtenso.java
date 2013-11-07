@@ -6,7 +6,13 @@ public class NumPorExtenso {
 	}
 
 	public String retornaExtenso(int num) {
-		return "zero";
+		if (num == 0){
+			return "zero";
+		}else if (num == 1){
+			return "um";
+		}else{
+			return "dois";
+		}
 	}
 	
 	

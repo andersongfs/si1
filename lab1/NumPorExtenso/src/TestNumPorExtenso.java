@@ -10,6 +10,8 @@ public class TestNumPorExtenso {
 	public void test() {
 		NumPorExtenso extenso = new NumPorExtenso();
 		assertTrue(extenso.retornaExtenso(0) == "zero");
+		assertTrue(extenso.retornaExtenso(1) == "um");
+		assertTrue(extenso.retornaExtenso(2) == "dois");
 	}
 
 }
