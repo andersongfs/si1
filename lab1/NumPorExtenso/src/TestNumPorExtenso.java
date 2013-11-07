@@ -9,14 +9,17 @@ public class TestNumPorExtenso {
 	@Test
 	public void test() {
 		NumPorExtenso extenso = new NumPorExtenso();
-		assertTrue(extenso.retornaExtenso(0) == "zero");
-		assertTrue(extenso.retornaExtenso(1) == "um");
-		assertTrue(extenso.retornaExtenso(2) == "dois");
-		assertTrue(extenso.retornaExtenso(3) == "tres");
-		assertTrue(extenso.retornaExtenso(4) == "quatro");
-		assertTrue(extenso.retornaExtenso(5) == "cinco");
-		assertTrue(extenso.retornaExtenso(9) == "nove");
-		
+		assertEquals("zero", extenso.retornaExtenso(0));
+		assertEquals("um", extenso.retornaExtenso(1));
+		assertEquals("dois", extenso.retornaExtenso(2));
+		assertEquals("tres", extenso.retornaExtenso(3));
+		assertEquals("quatro", extenso.retornaExtenso(4));
+		assertEquals("cinco", extenso.retornaExtenso(5));
+		assertEquals("nove", extenso.retornaExtenso(9));
+		assertEquals("dezenove", extenso.retornaExtenso(19));
+		assertEquals("vinte", extenso.retornaExtenso(20));
+		assertEquals("vinte e um", extenso.retornaExtenso(21));
+
 	}
 
 }
