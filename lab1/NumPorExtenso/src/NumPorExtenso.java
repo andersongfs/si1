@@ -14,6 +14,8 @@ public class NumPorExtenso {
 			return array0a19[num];
 		}
 		
+		
+		
 		if (num >= 20 && num < 100){
 			String[] arrayDezenas = {"vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"};
 			int num2 = num/10;
@@ -23,6 +25,24 @@ public class NumPorExtenso {
 				return String.format("%s", arrayDezenas[num2-2]);
 			}else{
 				return String.format("%s e %s", arrayDezenas[num2-2], retornaExtenso(resto));
+			}
+		}
+		
+		
+		
+		if (num == 100){
+			return "cem";
+		}
+		
+		if (num > 100 && num < 1000){
+			String[] arrayCentenas = {"cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"}; 
+			int num2 = num/100;
+			int resto = num%100;
+			
+			if(resto == 0){
+				return String.format("%s", arrayCentenas[num2-1]);
+			}else{
+				return String.format("%s e %s", arrayCentenas[num2-1], retornaExtenso(resto));
 			}
 		}
 		

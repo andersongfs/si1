@@ -33,10 +33,20 @@ public class TestNumPorExtenso {
 		assertEquals("noventa e um", extenso.retornaExtenso(91));
 		assertEquals("noventa e nove", extenso.retornaExtenso(99));
 		
-		assertEquals("cem", extenso.retornaExtenso(90));
+		assertEquals("cem", extenso.retornaExtenso(100));
 		assertEquals("cento e um", extenso.retornaExtenso(101));
 		assertEquals("cento e dez", extenso.retornaExtenso(110));
 		assertEquals("cento e noventa e nove", extenso.retornaExtenso(199));
+		
+		assertEquals("duzentos", extenso.retornaExtenso(200));
+		assertEquals("duzentos e um", extenso.retornaExtenso(201));
+		assertEquals("duzentos e dez", extenso.retornaExtenso(210));
+		assertEquals("duzentos e noventa e nove", extenso.retornaExtenso(299));
+		
+		assertEquals("novecentos", extenso.retornaExtenso(900));
+		assertEquals("novecentos e um", extenso.retornaExtenso(901));
+		assertEquals("novecentos e dez", extenso.retornaExtenso(910));
+		assertEquals("novecentos e noventa e nove", extenso.retornaExtenso(999));
 	}
 
 }
