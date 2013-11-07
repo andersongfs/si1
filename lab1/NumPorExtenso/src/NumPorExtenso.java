@@ -1,3 +1,6 @@
+import java.awt.List;
+import java.util.ArrayList;
+
 
 public class NumPorExtenso {
 	
@@ -6,13 +9,11 @@ public class NumPorExtenso {
 	}
 
 	public String retornaExtenso(int num) {
-		if (num == 0){
-			return "zero";
-		}else if (num == 1){
-			return "um";
-		}else{
-			return "dois";
+		String[] array0a9 = {"zero", "um", "dois", "tres", "quatro", "cinco", "seis", "sete", "oito", "nove"};
+		if (num < 10){
+			return array0a9[num];
 		}
+		return null;
 	}
 	
 	
