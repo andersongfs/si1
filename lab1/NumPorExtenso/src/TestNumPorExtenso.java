@@ -1,14 +1,21 @@
 import static org.junit.Assert.*;
 import junit.framework.Assert;
 
+import org.junit.Before;
 import org.junit.Test;
 
 
 public class TestNumPorExtenso {
-
+	private NumPorExtenso extenso;
+	
+	@Before
+	public void inicio(){
+		extenso = new NumPorExtenso();
+	}
+		
 	@Test
-	public void test() {
-		NumPorExtenso extenso = new NumPorExtenso();
+	public void testUnidades() throws Exception {
+		
 		assertEquals("zero", extenso.retornaExtenso(0));
 		assertEquals("um", extenso.retornaExtenso(1));
 		assertEquals("dois", extenso.retornaExtenso(2));
@@ -16,6 +23,9 @@ public class TestNumPorExtenso {
 		assertEquals("quatro", extenso.retornaExtenso(4));
 		assertEquals("cinco", extenso.retornaExtenso(5));
 		assertEquals("nove", extenso.retornaExtenso(9));
+	}	
+	@Test
+	public void testDezenas() throws Exception{
 		assertEquals("dezenove", extenso.retornaExtenso(19));
 		assertEquals("vinte", extenso.retornaExtenso(20));
 		assertEquals("vinte e um", extenso.retornaExtenso(21));
@@ -32,7 +42,9 @@ public class TestNumPorExtenso {
 		assertEquals("noventa", extenso.retornaExtenso(90));
 		assertEquals("noventa e um", extenso.retornaExtenso(91));
 		assertEquals("noventa e nove", extenso.retornaExtenso(99));
-		
+	}
+	@Test
+	public void testCentenas() throws Exception{
 		assertEquals("cem", extenso.retornaExtenso(100));
 		assertEquals("cento e um", extenso.retornaExtenso(101));
 		assertEquals("cento e dez", extenso.retornaExtenso(110));
@@ -47,7 +59,10 @@ public class TestNumPorExtenso {
 		assertEquals("novecentos e um", extenso.retornaExtenso(901));
 		assertEquals("novecentos e dez", extenso.retornaExtenso(910));
 		assertEquals("novecentos e noventa e nove", extenso.retornaExtenso(999));
-		
+	}
+	
+	@Test
+	public void testMilhar() throws Exception{
 		assertEquals("mil", extenso.retornaExtenso(1000));
 		assertEquals("mil e um", extenso.retornaExtenso(1001));
 		assertEquals("mil e dez", extenso.retornaExtenso(1010));
@@ -69,18 +84,36 @@ public class TestNumPorExtenso {
 		assertEquals("dez mil cento e dez", extenso.retornaExtenso(10110));
 		assertEquals("dez mil novecentos e noventa e nove", extenso.retornaExtenso(10999));
 		
+		assertEquals("novecentos mil", extenso.retornaExtenso(900000));
 		assertEquals("novecentos e noventa e nove mil novecentos e noventa e nove", extenso.retornaExtenso(999999));
-		
+	}
+	
+	@Test
+	public void testMilhao() throws Exception{
 		assertEquals("um milhao", extenso.retornaExtenso(1000000));
 		assertEquals("um milhao e um", extenso.retornaExtenso(1000001));
 		assertEquals("um milhao e dez", extenso.retornaExtenso(1000010));
 		assertEquals("um milhao e cem", extenso.retornaExtenso(1000100));
+		assertEquals("um milhao cento e dez mil", extenso.retornaExtenso(1110000));
+		assertEquals("um milhao e cem mil", extenso.retornaExtenso(1100000));
 		assertEquals("um milhao cento e dez", extenso.retornaExtenso(1000110));
-		assertEquals("um milhao e mil", extenso.retornaExtenso(1001000));
-		assertEquals("um milhao e dois mil", extenso.retornaExtenso(1002000));
 		assertEquals("um milhao dois mil e cem", extenso.retornaExtenso(1002100));
 		assertEquals("um milhao dois mil cento e trinta", extenso.retornaExtenso(1002130));
 
+	}
+	
+	@Test
+	public void testBilhao() throws Exception{
+		assertEquals("um bilhao", extenso.retornaExtenso(1000000000));
+	}
+	
+	@Test
+	public void testLimite(){
+		try{
+			extenso.retornaExtenso(-2);
+		}catch (Exception e) {
+			assertEquals("Numero invalido", e.getMessage());
+		}
 	}
 
 }
