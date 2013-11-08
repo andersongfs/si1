@@ -70,6 +70,16 @@ public class TestNumPorExtenso {
 		assertEquals("dez mil novecentos e noventa e nove", extenso.retornaExtenso(10999));
 		
 		assertEquals("novecentos e noventa e nove mil novecentos e noventa e nove", extenso.retornaExtenso(999999));
+		
+		assertEquals("um milhao", extenso.retornaExtenso(1000000));
+		assertEquals("um milhao e um", extenso.retornaExtenso(1000001));
+		assertEquals("um milhao e dez", extenso.retornaExtenso(1000010));
+		assertEquals("um milhao e cem", extenso.retornaExtenso(1000100));
+		assertEquals("um milhao cento e dez", extenso.retornaExtenso(1000110));
+		assertEquals("um milhao e mil", extenso.retornaExtenso(1001000));
+		assertEquals("um milhao e dois mil", extenso.retornaExtenso(1002000));
+		assertEquals("um milhao dois mil e cem", extenso.retornaExtenso(1002100));
+		assertEquals("um milhao dois mil cento e trinta", extenso.retornaExtenso(1002130));
 
 	}
 
