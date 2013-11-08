@@ -13,7 +13,9 @@ public class NumPorExtenso {
 	}
 
 	public String retornaExtenso(int num) {
-		 
+		
+		//Unidade e dezena
+		
 		if (num >= 0 && num < 20 ){
 			return array0a19[num];
 		}
@@ -31,7 +33,7 @@ public class NumPorExtenso {
 			}
 		}
 		
-		
+		//centena
 		
 		if (num == 100){
 			return "cem";
@@ -49,6 +51,8 @@ public class NumPorExtenso {
 			}
 		}
 		
+		
+		//milhar
 		
 		if (num == 1000){
 			return "mil";
@@ -82,6 +86,11 @@ public class NumPorExtenso {
 			
 		}
 		
+
+		
+		
+		
+
 		
 		return null;
 	}
