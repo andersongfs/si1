@@ -14,7 +14,13 @@ public class NumPorExtenso {
 		arrayDezenas = new String[] {"vinte", "trinta", "quarenta", "cinquenta", "sessenta", "setenta", "oitenta", "noventa"};
 		arrayCentenas = new String[] {"cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"}; 
 	}
-
+	
+	/**
+	 * 
+	 * @param num
+	 * @return O numero por extenso se estiver entre 0 e 1000000000
+	 * @throws Exception Numero invalido se estiver fora do limite
+	 */
 	public String retornaExtenso(int num) throws Exception {
 		
 		//Unidade e dezena
@@ -48,6 +54,12 @@ public class NumPorExtenso {
 	
 	}
 	
+	/**
+	 * 
+	 * @param num
+	 * @return unidade e dezena por extenso
+	 * @throws Exception
+	 */
 	public String uniEDez(int num) throws Exception{
 		if (num >= 0 && num < 20 ){
 			return array0a19[num];
@@ -64,6 +76,12 @@ public class NumPorExtenso {
 		
 	}
 	
+	/**
+	 * 
+	 * @param num
+	 * @return centena por extenso
+	 * @throws Exception
+	 */
 	public String centena(int num) throws Exception{
 		if (num == 100){
 			return "cem";
@@ -80,6 +98,12 @@ public class NumPorExtenso {
 		
 	}
 	
+	/**
+	 * 
+	 * @param num
+	 * @return milhar por extenso
+	 * @throws Exception
+	 */
 	public String milhar(int num) throws Exception{
 		if (num == 1000){
 			return "mil";
@@ -110,6 +134,12 @@ public class NumPorExtenso {
 				
 	}
 	
+	/**
+	 * 
+	 * @param num
+	 * @return milhao por extenso
+	 * @throws Exception
+	 */
 	public String milhao(int num) throws Exception{
 		if(num == 1000000){
 			return "um milhao";
