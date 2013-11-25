@@ -5,7 +5,7 @@
 # Home page
 GET     /                           controllers.Application.index()
 
-# Tasks
+# Tasks          
 GET     /tasks                  controllers.Application.tasks()
 POST    /tasks                  controllers.Application.newTask()
 POST    /tasks/:id/delete       controllers.Application.deleteTask(id: Long)

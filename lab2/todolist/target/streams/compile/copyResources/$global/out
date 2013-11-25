@@ -1,3 +1,6 @@
 [0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(/Users/andersongfs/Documents/projetosPlay/todolist/conf/application.conf,/Users/andersongfs/Documents/projetosPlay/todolist/target/scala-2.10/classes/application.conf)[0m
-[0m[[0mdebug[0m] [0m	(/Users/andersongfs/Documents/projetosPlay/todolist/conf/routes,/Users/andersongfs/Documents/projetosPlay/todolist/target/scala-2.10/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/andersongfs/Git/si1/lab2/todolist/conf/application.conf,/home/andersongfs/Git/si1/lab2/todolist/target/scala-2.10/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/home/andersongfs/Git/si1/lab2/todolist/conf/routes,/home/andersongfs/Git/si1/lab2/todolist/target/scala-2.10/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/home/andersongfs/Git/si1/lab2/todolist/conf/evolutions,/home/andersongfs/Git/si1/lab2/todolist/target/scala-2.10/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/home/andersongfs/Git/si1/lab2/todolist/conf/evolutions/default,/home/andersongfs/Git/si1/lab2/todolist/target/scala-2.10/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/home/andersongfs/Git/si1/lab2/todolist/conf/evolutions/default/1.sql,/home/andersongfs/Git/si1/lab2/todolist/target/scala-2.10/classes/evolutions/default/1.sql)[0m

@@ -1,6 +1,6 @@
-// @SOURCE:/Users/andersongfs/Documents/projetosPlay/todolist/conf/routes
-// @HASH:10faaf6b1c003369d3d38ad1091233d097ace0d7
-// @DATE:Mon Nov 25 09:15:29 BRT 2013
+// @SOURCE:/home/andersongfs/Git/si1/lab2/todolist/conf/routes
+// @HASH:eaf2eb56eafa374248923e56213ceac46e906b6c
+// @DATE:Mon Nov 25 15:19:42 BRT 2013
 
 
 import play.core._
@@ -66,7 +66,7 @@ case controllers_Application_index0(params) => {
 // @LINE:9
 case controllers_Application_tasks1(params) => {
    call { 
-        invokeHandler(controllers.Application.tasks(), HandlerDef(this, "controllers.Application", "tasks", Nil,"GET", """ Tasks""", Routes.prefix + """tasks"""))
+        invokeHandler(controllers.Application.tasks(), HandlerDef(this, "controllers.Application", "tasks", Nil,"GET", """ Tasks          """, Routes.prefix + """tasks"""))
    }
 }
         
