@@ -1,6 +1,6 @@
-// @SOURCE:/home/andersongfs/Git/si1/lab2/todolist/conf/routes
-// @HASH:eaf2eb56eafa374248923e56213ceac46e906b6c
-// @DATE:Mon Nov 25 15:19:42 BRT 2013
+// @SOURCE:/Users/andersongfs/Documents/projetosPlay/todolist/conf/routes
+// @HASH:ec61d2334cb83d51cbb38ad1e6c4ec0d00c693cb
+// @DATE:Mon Nov 25 22:41:23 BRT 2013
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -13,18 +13,19 @@ import play.libs.F
 import Router.queryString
 
 
-// @LINE:14
+// @LINE:15
+// @LINE:12
 // @LINE:11
 // @LINE:10
 // @LINE:9
 // @LINE:6
 package controllers {
 
-// @LINE:14
+// @LINE:15
 class ReverseAssets {
     
 
-// @LINE:14
+// @LINE:15
 def at(file:String): Call = {
    Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
 }
@@ -33,6 +34,7 @@ def at(file:String): Call = {
 }
                           
 
+// @LINE:12
 // @LINE:11
 // @LINE:10
 // @LINE:9
@@ -46,9 +48,15 @@ def tasks(): Call = {
 }
                                                 
 
-// @LINE:6
-def index(): Call = {
-   Call("GET", _prefix)
+// @LINE:11
+def deleteTask(id:Long): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "tasks/" + implicitly[PathBindable[Long]].unbind("id", id) + "/delete")
+}
+                                                
+
+// @LINE:12
+def update(id:Long): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "tasks/" + implicitly[PathBindable[Long]].unbind("id", id) + "/update")
 }
                                                 
 
@@ -58,9 +66,9 @@ def newTask(): Call = {
 }
                                                 
 
-// @LINE:11
-def deleteTask(id:Long): Call = {
-   Call("POST", _prefix + { _defaultPrefix } + "tasks/" + implicitly[PathBindable[Long]].unbind("id", id) + "/delete")
+// @LINE:6
+def index(): Call = {
+   Call("GET", _prefix)
 }
                                                 
     
@@ -70,18 +78,19 @@ def deleteTask(id:Long): Call = {
                   
 
 
-// @LINE:14
+// @LINE:15
+// @LINE:12
 // @LINE:11
 // @LINE:10
 // @LINE:9
 // @LINE:6
 package controllers.javascript {
 
-// @LINE:14
+// @LINE:15
 class ReverseAssets {
     
 
-// @LINE:14
+// @LINE:15
 def at : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Assets.at",
    """
@@ -95,6 +104,7 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
 }
               
 
+// @LINE:12
 // @LINE:11
 // @LINE:10
 // @LINE:9
@@ -113,12 +123,23 @@ def tasks : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:6
-def index : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.index",
+// @LINE:11
+def deleteTask : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.deleteTask",
    """
-      function() {
-      return _wA({method:"GET", url:"""" + _prefix + """"})
+      function(id) {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "tasks/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id) + "/delete"})
+      }
+   """
+)
+                        
+
+// @LINE:12
+def update : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.update",
+   """
+      function(id) {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "tasks/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id) + "/update"})
       }
    """
 )
@@ -135,12 +156,12 @@ def newTask : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
-// @LINE:11
-def deleteTask : JavascriptReverseRoute = JavascriptReverseRoute(
-   "controllers.Application.deleteTask",
+// @LINE:6
+def index : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.index",
    """
-      function(id) {
-      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "tasks/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id) + "/delete"})
+      function() {
+      return _wA({method:"GET", url:"""" + _prefix + """"})
       }
    """
 )
@@ -152,7 +173,8 @@ def deleteTask : JavascriptReverseRoute = JavascriptReverseRoute(
         
 
 
-// @LINE:14
+// @LINE:15
+// @LINE:12
 // @LINE:11
 // @LINE:10
 // @LINE:9
@@ -160,11 +182,11 @@ def deleteTask : JavascriptReverseRoute = JavascriptReverseRoute(
 package controllers.ref {
 
 
-// @LINE:14
+// @LINE:15
 class ReverseAssets {
     
 
-// @LINE:14
+// @LINE:15
 def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Assets.at(path, file), HandlerDef(this, "controllers.Assets", "at", Seq(classOf[String], classOf[String]), "GET", """ Map static resources from the /public folder to the /assets URL path""", _prefix + """assets/$file<.+>""")
 )
@@ -173,6 +195,7 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
 }
                           
 
+// @LINE:12
 // @LINE:11
 // @LINE:10
 // @LINE:9
@@ -186,9 +209,15 @@ def tasks(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:6
-def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.index(), HandlerDef(this, "controllers.Application", "index", Seq(), "GET", """ Home page""", _prefix + """""")
+// @LINE:11
+def deleteTask(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.deleteTask(id), HandlerDef(this, "controllers.Application", "deleteTask", Seq(classOf[Long]), "POST", """""", _prefix + """tasks/$id<[^/]+>/delete""")
+)
+                      
+
+// @LINE:12
+def update(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.update(id), HandlerDef(this, "controllers.Application", "update", Seq(classOf[Long]), "POST", """""", _prefix + """tasks/$id<[^/]+>/update""")
 )
                       
 
@@ -198,9 +227,9 @@ def newTask(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
-// @LINE:11
-def deleteTask(id:Long): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
-   controllers.Application.deleteTask(id), HandlerDef(this, "controllers.Application", "deleteTask", Seq(classOf[Long]), "POST", """""", _prefix + """tasks/$id<[^/]+>/delete""")
+// @LINE:6
+def index(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.index(), HandlerDef(this, "controllers.Application", "index", Seq(), "GET", """ Home page""", _prefix + """""")
 )
                       
     
