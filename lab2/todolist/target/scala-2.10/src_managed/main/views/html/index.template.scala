@@ -29,69 +29,98 @@ object index extends BaseScalaTemplate[play.api.templates.HtmlFormat.Appendable,
 
 Seq[Any](format.raw/*1.43*/("""
 
-"""),format.raw/*4.1*/("""
+<link href="assets/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+"""),format.raw/*5.1*/("""
 
-"""),_display_(Seq[Any](/*6.2*/main("Lista de Tarefas")/*6.26*/ {_display_(Seq[Any](format.raw/*6.28*/("""
-"""),_display_(Seq[Any](/*7.2*/Collections/*7.13*/.sort(tasks))),format.raw/*7.25*/("""
+"""),_display_(Seq[Any](/*7.2*/main("Lista de Tarefas")/*7.26*/ {_display_(Seq[Any](format.raw/*7.28*/("""
+"""),_display_(Seq[Any](/*8.2*/Collections/*8.13*/.sort(tasks))),format.raw/*8.25*/("""
+    <div class="container" color="#708090">
+        <div class="panel-heading">
+            <h3 class="text-center">Adicionar uma nova tarefa</h3>
+        </div>
     
-    <h1>Tarefa(s) a ser(em) feita(s)</h1>
+    """),_display_(Seq[Any](/*14.6*/form(routes.Application.newTask())/*14.40*/ {_display_(Seq[Any](format.raw/*14.42*/("""        
+        <div class="text-center">    
+            <input class="span3" type="text" name="label"placeholder="tarefa"> <br>
+            <input class="span3" type="text" name="association" placeholder="associação"> <br>
+            <select name="priority" class="span2">
+                <option value=1 >1</option>
+                <option value=2 >2</option>
+                <option value=3 >3</option>
+            </select> </br>   
+            
+
+            <input type="submit" class="btn" value="Criar">
+        </div>
+        
+    """)))})),format.raw/*28.6*/("""
+
+
+    <h3 class="text-center">Tarefa(s) a ser(em) feita(s)</h3>
     
     <ul>
-        """),_display_(Seq[Any](/*12.10*/for(task <- tasks) yield /*12.28*/ {_display_(Seq[Any](format.raw/*12.30*/("""
+        <table class="table table-striped">
+            <tr>
+                <th>Tarefa</th>
+                <th>Projeto associado</th>
+                <th>Prioridade</th>
+                <th>Opções</th>
+            </tr>
+        """),_display_(Seq[Any](/*41.10*/for(task <- tasks) yield /*41.28*/ {_display_(Seq[Any](format.raw/*41.30*/("""
 
-            """),_display_(Seq[Any](/*14.14*/if(!task.isDone)/*14.30*/{_display_(Seq[Any](format.raw/*14.31*/("""
-                <li>
-                    Nome: """),_display_(Seq[Any](/*16.28*/task/*16.32*/.label)),format.raw/*16.38*/("""<br>
-                    Associacao: """),_display_(Seq[Any](/*17.34*/task/*17.38*/.association)),format.raw/*17.50*/("""<br>
-                    Prioridade: """),_display_(Seq[Any](/*18.34*/task/*18.38*/.priority)),format.raw/*18.47*/("""<br>
-                    Done: """),_display_(Seq[Any](/*19.28*/task/*19.32*/.done)),format.raw/*19.37*/("""<br>
-                    
-                    """),_display_(Seq[Any](/*21.22*/form(routes.Application.update(task.id))/*21.62*/ {_display_(Seq[Any](format.raw/*21.64*/("""
-                        <input type="submit" value="Feito">
-                    """)))})),format.raw/*23.22*/("""
-                    """),_display_(Seq[Any](/*24.22*/form(routes.Application.deleteTask(task.id))/*24.66*/ {_display_(Seq[Any](format.raw/*24.68*/("""
-                        <input type="submit" value="Deletar">
-                    """)))})),format.raw/*26.22*/("""
-                </li>
-            """)))})),format.raw/*28.14*/("""
-        """)))})),format.raw/*29.10*/("""
+            """),_display_(Seq[Any](/*43.14*/if(!task.isDone)/*43.30*/{_display_(Seq[Any](format.raw/*43.31*/("""
+ 
+                    <tr>
+                        <th>"""),_display_(Seq[Any](/*46.30*/task/*46.34*/.label)),format.raw/*46.40*/("""</th>
+                        <th>"""),_display_(Seq[Any](/*47.30*/task/*47.34*/.association)),format.raw/*47.46*/("""</th>
+                        <th>"""),_display_(Seq[Any](/*48.30*/task/*48.34*/.priority)),format.raw/*48.43*/("""</th> 
+                        <th>
+                            """),_display_(Seq[Any](/*50.30*/form(routes.Application.update(task.id))/*50.70*/ {_display_(Seq[Any](format.raw/*50.72*/("""
+                                <input type="submit" class="btn" value="Feito">
+                            """)))})),format.raw/*52.30*/("""
+                        
+                            """),_display_(Seq[Any](/*54.30*/form(routes.Application.deleteTask(task.id))/*54.74*/ {_display_(Seq[Any](format.raw/*54.76*/("""
+                                <input type="submit" class="btn" value="Deletar">
+                            """)))})),format.raw/*56.30*/("""  
+                        </th>                
+                    </tr> 
+                
+            """)))})),format.raw/*60.14*/("""
+        """)))})),format.raw/*61.10*/("""
+        </table>
     </ul>
 
-    <h1>Tarefa(s) Feita(s)</h1>
+    <h3 class="text-center">Tarefa(s) Feita(s)</h3>
+    
     <ul>
-        """),_display_(Seq[Any](/*34.10*/for(task <- tasks) yield /*34.28*/ {_display_(Seq[Any](format.raw/*34.30*/("""
-            """),_display_(Seq[Any](/*35.14*/if(task.isDone)/*35.29*/{_display_(Seq[Any](format.raw/*35.30*/("""
-                <li>
-                    Nome: """),_display_(Seq[Any](/*37.28*/task/*37.32*/.label)),format.raw/*37.38*/("""<br>
-                    Associacao: """),_display_(Seq[Any](/*38.34*/task/*38.38*/.association)),format.raw/*38.50*/("""<br>
-                    Prioridade: """),_display_(Seq[Any](/*39.34*/task/*39.38*/.priority)),format.raw/*39.47*/("""<br>
-                    Done: """),_display_(Seq[Any](/*40.28*/task/*40.32*/.done)),format.raw/*40.37*/("""<br>
-
-                    """),_display_(Seq[Any](/*42.22*/form(routes.Application.deleteTask(task.id))/*42.66*/ {_display_(Seq[Any](format.raw/*42.68*/("""
-                        <input type="submit" value="Deletar">
-                    """)))})),format.raw/*44.22*/("""
-                </li>
-            """)))})),format.raw/*46.14*/("""
-
-        """)))})),format.raw/*48.10*/("""
+        <table class="table table-striped">
+            <tr>
+                <th>Tarefa</th>
+                <th>Projeto associado</th>
+                <th>Prioridade</th>
+                <th>Opções</th>
+            </tr>
+            """),_display_(Seq[Any](/*75.14*/for(task <- tasks) yield /*75.32*/ {_display_(Seq[Any](format.raw/*75.34*/("""
+                """),_display_(Seq[Any](/*76.18*/if(task.isDone)/*76.33*/{_display_(Seq[Any](format.raw/*76.34*/("""
+                        <tr>
+                            <th>"""),_display_(Seq[Any](/*78.34*/task/*78.38*/.label)),format.raw/*78.44*/("""</th>
+                            <th>"""),_display_(Seq[Any](/*79.34*/task/*79.38*/.association)),format.raw/*79.50*/("""</th>
+                            <th>"""),_display_(Seq[Any](/*80.34*/task/*80.38*/.priority)),format.raw/*80.47*/("""</th> 
+                            <th>
+                                """),_display_(Seq[Any](/*82.34*/form(routes.Application.deleteTask(task.id))/*82.78*/ {_display_(Seq[Any](format.raw/*82.80*/("""
+                                    <input type="submit" class="btn" value="Deletar">
+                                """)))})),format.raw/*84.34*/("""  
+                            </th>                
+                        </tr>                   
+                """)))})),format.raw/*87.18*/("""
+            """)))})),format.raw/*88.14*/("""
+        </table>
     </ul>
     
-    <h2>Adicionar uma nova tarefa</h2>
+    </div>
+
     
-    """),_display_(Seq[Any](/*53.6*/form(routes.Application.newTask())/*53.40*/ {_display_(Seq[Any](format.raw/*53.42*/("""
-        
-        """),_display_(Seq[Any](/*55.10*/inputText(taskForm("label")))),format.raw/*55.38*/(""" 
-        """),_display_(Seq[Any](/*56.10*/inputText(taskForm("association")))),format.raw/*56.44*/("""
-        <select name="priority">
-            <option value=1 >1</option>
-            <option value=2 >2</option>
-            <option value=3 >3</option>
-        
-        <input type="submit" value="Criar">
-        
-    """)))})),format.raw/*64.6*/("""
-    
-""")))})),format.raw/*66.2*/("""
+""")))})),format.raw/*95.2*/("""
 """))}
     }
     
@@ -104,11 +133,11 @@ Seq[Any](format.raw/*1.43*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Nov 25 23:41:23 BRT 2013
+                    DATE: Tue Nov 26 22:54:44 BRT 2013
                     SOURCE: /Users/andersongfs/Documents/projetosPlay/todolist/app/views/index.scala.html
-                    HASH: 65c7d0574f7d33d61e4b4fa71d900b39c5a5c7c1
-                    MATRIX: 789->1|940->42|968->61|1005->64|1037->88|1076->90|1112->92|1131->103|1164->115|1271->186|1305->204|1345->206|1396->221|1421->237|1460->238|1545->287|1558->291|1586->297|1660->335|1673->339|1707->351|1781->389|1794->393|1825->402|1893->434|1906->438|1933->443|2016->490|2065->530|2105->532|2219->614|2277->636|2330->680|2370->682|2486->766|2554->802|2596->812|2694->874|2728->892|2768->894|2818->908|2842->923|2881->924|2966->973|2979->977|3007->983|3081->1021|3094->1025|3128->1037|3202->1075|3215->1079|3246->1088|3314->1120|3327->1124|3354->1129|3417->1156|3470->1200|3510->1202|3626->1286|3694->1322|3737->1333|3837->1398|3880->1432|3920->1434|3975->1453|4025->1481|4072->1492|4128->1526|4380->1747|4418->1754
-                    LINES: 26->1|30->1|32->4|34->6|34->6|34->6|35->7|35->7|35->7|40->12|40->12|40->12|42->14|42->14|42->14|44->16|44->16|44->16|45->17|45->17|45->17|46->18|46->18|46->18|47->19|47->19|47->19|49->21|49->21|49->21|51->23|52->24|52->24|52->24|54->26|56->28|57->29|62->34|62->34|62->34|63->35|63->35|63->35|65->37|65->37|65->37|66->38|66->38|66->38|67->39|67->39|67->39|68->40|68->40|68->40|70->42|70->42|70->42|72->44|74->46|76->48|81->53|81->53|81->53|83->55|83->55|84->56|84->56|92->64|94->66
+                    HASH: 773051f7945089e18767c558792b8ca71d4939c3
+                    MATRIX: 789->1|940->42|1051->144|1088->147|1120->171|1159->173|1195->175|1214->186|1247->198|1455->371|1498->405|1538->407|2112->950|2458->1260|2492->1278|2532->1280|2583->1295|2608->1311|2647->1312|2740->1369|2753->1373|2781->1379|2852->1414|2865->1418|2899->1430|2970->1465|2983->1469|3014->1478|3115->1543|3164->1583|3204->1585|3346->1695|3437->1750|3490->1794|3530->1796|3674->1908|3812->2014|3854->2024|4220->2354|4254->2372|4294->2374|4348->2392|4372->2407|4411->2408|4510->2471|4523->2475|4551->2481|4626->2520|4639->2524|4673->2536|4748->2575|4761->2579|4792->2588|4901->2661|4954->2705|4994->2707|5146->2827|5297->2946|5343->2960|5425->3011
+                    LINES: 26->1|30->1|33->5|35->7|35->7|35->7|36->8|36->8|36->8|42->14|42->14|42->14|56->28|69->41|69->41|69->41|71->43|71->43|71->43|74->46|74->46|74->46|75->47|75->47|75->47|76->48|76->48|76->48|78->50|78->50|78->50|80->52|82->54|82->54|82->54|84->56|88->60|89->61|103->75|103->75|103->75|104->76|104->76|104->76|106->78|106->78|106->78|107->79|107->79|107->79|108->80|108->80|108->80|110->82|110->82|110->82|112->84|115->87|116->88|123->95
                     -- GENERATED --
                 */
             
